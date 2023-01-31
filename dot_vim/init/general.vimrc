@@ -62,8 +62,7 @@ imap <C-s> <Esc>:w!<CR>                 " Works in insert mode, saves and puts b
 
 nmap <Leader><C-r> :so $MYVIMRC<CR>     " easier .vimrc refresh
 nmap <Leader>v :w<CR> :vsp ~/.vimrc<CR> " edit vimrc
-nmap <Leader>b :w<CR> :vsp ~/.vim/init/general.vimrc<CR>  " edit general vimrc
-file
+nmap <Leader>b :w<CR> :vsp ~/.vim/init/general.vimrc<CR>  " edit general vimrc file
 nnoremap <leader>t :stop<CR>            " toggle to full screen terminal - fg to get back
 
 " NERDTree & fzf
