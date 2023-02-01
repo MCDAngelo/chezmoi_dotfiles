@@ -43,6 +43,9 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'github/copilot.vim'
 
+" Shadowenv support
+Plug 'Shopify/shadowenv.vim'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
