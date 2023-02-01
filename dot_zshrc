@@ -80,6 +80,7 @@ plugins=(
 # command for zsh-completions
 autoload -U compinit && compinit
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -108,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.aliases
+
+# Work specific
+eval "$(shadowenv init zsh)"
 source "/opt/dev/dev.sh"
 if [ -e /Users/seb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/seb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
