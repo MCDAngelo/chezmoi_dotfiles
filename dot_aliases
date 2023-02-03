@@ -2,7 +2,11 @@
 # But actually, neovim
 #alias vi=nvim
 #alias vim=nvim
+<<<<<<< Updated upstream
 alias os="dev cd os"
 alias si="dev cd siphon"
 alias to="dev cd totally-radford"
 alias tf="dev cd os; cd tools/frameworks"
+=======
+alias cz=chezmoi
+>>>>>>> Stashed changes
