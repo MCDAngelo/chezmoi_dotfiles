@@ -113,5 +113,5 @@ source ~/.aliases
 # Work specific
 eval "$(shadowenv init zsh)"
 source "/opt/dev/dev.sh"
-if [ -e /Users/seb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/seb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e /Users/mariadangelo/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mariadangelo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
