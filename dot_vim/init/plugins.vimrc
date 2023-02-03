@@ -8,3 +8,7 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 let g:nerdtree_vis_confirm_open = 0
 let NERDTreeIgnore=['\.git$', 'egg-info', 'dist-info', '__editable__', '__pycache__']
+
+" Set vim slime target to tmux send using C-c C-c (same thing twice)
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}

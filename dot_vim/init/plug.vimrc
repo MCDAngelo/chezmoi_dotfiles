@@ -46,6 +46,9 @@ Plug 'github/copilot.vim'
 " Shadowenv support
 Plug 'Shopify/shadowenv.vim'
 
+" vim slim to send code to ipython within tmux
+Plug 'jpalardy/vim-slime'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
