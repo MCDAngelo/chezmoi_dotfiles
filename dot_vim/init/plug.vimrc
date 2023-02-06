@@ -49,6 +49,10 @@ Plug 'Shopify/shadowenv.vim'
 " vim slim to send code to ipython within tmux
 Plug 'jpalardy/vim-slime'
 
+" syntax highlighting
+Plug 'jjo/vim-cue'
+Plug 'jlcrochet/vim-ruby'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
