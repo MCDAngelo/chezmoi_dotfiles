@@ -23,5 +23,11 @@ augroup cursor_off
     autocmd WinEnter * set cursorline cursorcolumn
 augroup END
 
+augroup vimrcEx
+  " Clear all autocmds in the group
+    autocmd!
+    autocmd! BufRead,BufNewFile *.cue set noexpandtab
+augroup END
+
 " }}}
 
