@@ -12,3 +12,8 @@ let NERDTreeIgnore=['\.git$', 'egg-info', 'dist-info', '__editable__', '__pycach
 " Set vim slime target to tmux send using C-c C-c (same thing twice)
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+
+
+" airline settings
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
