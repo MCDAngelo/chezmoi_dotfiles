@@ -1,5 +1,5 @@
-require("mcdangel.remap")
-require("mcdangel.set")
+require("set")
+require("remap")
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 -- Auto-install lazy.nvim if not present
@@ -39,11 +39,12 @@ require('lazy').setup('plugins', {
                 'tohtml',
                 'tutor',
                 'zipPlugin',
+                'Copilot',
             },
         },
     },
 })
 
-
+vim.cmd("Copilot disable")
 
 

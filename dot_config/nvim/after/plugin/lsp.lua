@@ -1,40 +1,48 @@
-local lsp = require('lsp-zero').preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+vim.api.nvim_create_augroup('AutoFormatting', {})
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--     pattern = { '*.py' },
+--     group = 'AutoFormatting',
+--     desc = "Auto-format Python files after saving",
+--     callback = function()
+--         local fileName = vim.api.nvim_buf_get_name(0)
+--         vim.cmd(":silent !black --preview -q " .. fileName)
+--         vim.cmd(":silent !isort --profile black --float-to-top -q " .. fileName)
+--         vim.cmd(":silent !docformatter --in-place --black " .. fileName)
+--     end,
+-- })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = { '*.py', '*.html', '*.css', '*.md'},
+    group = 'AutoFormatting',
+    callback = function()
+        vim.lsp.buf.format() 
+    end,
 })
-
--- (Optional) Configure lua language server for neovim
--- lsp.nvim_workspace()
-
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	['<C-Space>'] = cmp.mapping.complete(),
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = { 'htmldjango' },
+    group = 'AutoFormatting',
+    callback = function()
+        vim.lsp.buf.format() 
+    end,
 })
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
+vim.api.nvim_create_augroup('Skeletons', {})
+vim.api.nvim_create_autocmd('BufNewFile', {
+    pattern = '*.html',
+    group = 'Skeletons',
+    command = '0r ~/.config/nvim/skeletons/skeleton.html',
 })
-
-lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
-
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.lsp.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.lsp.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.lsp.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
-
-lsp.setup()
-
+vim.api.nvim_create_augroup('Spacing', {})
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'html', 'css', 'htmldjango' },
+    group = 'Spacing',
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+    end
+})
+-- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile', 'BufWritePre'}, {
+--     pattern = '*.md',
+--     group = 'AutoFormatting',
+--     callback = function()
+--         vim.opt_local.textwidth = 80
+--         vim.
+-- })
